@@ -1,0 +1,30 @@
+
+<div class="container">
+<!-- <div #a="getProductDetail(cartdetail.product_id)">{{productdetail.name}}</div> -->
+
+<table class="table table-bordered">
+ <thead class="thead-dark">
+   <tr>
+  <th>name</th>
+  <th>image</th>
+  <th>model</th>
+  <th>price</th>
+  <th>quantity</th>
+  <th>buttons</th>
+</tr>
+</thead>
+<tbody>
+    <tr *ngFor="let cartdetail of cartDetails" class="cart-details">
+      <td>{{cartdetail.name}}</td>
+      <td> <img [src]="cartdetail.photo" alt="item" /></td>      
+      <td>{{cartdetail.model}}</td>
+      <td>{{cartdetail.price}}</td>
+      <td>{{cartdetail.quantity}}</td>
+      <td><button (click)="deleteCart(cartdetail.cartId)" class="delete-btn btn btn-outline-danger">Delete</button></td>
+    </tr>
+  
+  </tbody>
+</table>
+<h5>total:{{total}}</h5>
+<button class="btn btn-outline-info"><a routerLink="/checkout" routerLinkActive="active" id="checkout">Checkout</a></button>  
+</div>

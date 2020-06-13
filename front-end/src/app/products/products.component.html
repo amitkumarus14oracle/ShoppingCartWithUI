@@ -1,0 +1,55 @@
+<div class="page">
+  <header class="header">
+    <span><strong> Cart count : {{length}} </strong><button class="btn btn-outline-info"><a routerLink="/cart" routerLinkActive="active"  id="count" > View Cart Contents</a></button></span>
+  </header>
+
+
+<div class="continer-fluid h-100">
+  <div class="row h-100">
+    <!-- left sidebar -->
+    <div class="col-md-2 fixed px-3 py-3 bg-light">
+      <ul class="nav flex-md-column flex-nowrap justify-content-center align-items-center">
+        <li class="nav-item pb-3">
+          <button type="button" class="btn btn-outline-dark" id="mouse" (click)="filterDetails('mouse')">mouse</button>
+        </li>
+        <li class="nav-item pb-3">
+            <button type="button" class="btn btn-outline-dark" id="mobile" (click)="filterDetails('mobile')">mobile</button>
+        </li>
+        <li class="nav-item pb-3">
+            <button type="button" class="btn btn-outline-dark"  id="laptop"  (click)="filterDetails('laptop')">laptop</button>
+        </li>
+       
+        <li class="nav-item pb-3">
+            <button type="button" class="btn btn-outline-dark"  (click)="getAllDetails()">All</button>
+        </li>
+
+      </ul>
+    </div>
+    <div class="col fluid d-flex flex-column px-5">
+     
+      <div class="bg-light">
+        <!-- main content -->
+        <div class="flex-grow">
+          <div class="col-12 py-4">
+              <form id="filter">
+                  
+                  <input type="text" [(ngModel)]="term" name="searchbar"  class="form-control mr-sm-2 mb-4" id="searchbar" placeholder="search......"/>
+                </form>
+
+            <div class="card-columns">
+              <div class="card  text-center mx-6" *ngFor="let detail of details | search:term">
+                <img class="card-img-top" [src]="detail.photo" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title" >{{detail.name}}</h5>
+                  <p class="card-text">{{detail.price}} $</p>
+                  <button type="button" class="btn btn-outline-info addtocart" (click)="addToCart(detail.name,detail.photo,detail.model,detail.price)">Add to cart</button>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

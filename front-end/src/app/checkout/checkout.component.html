@@ -1,0 +1,37 @@
+<form >
+<table align="center">
+  <tr>
+    <td>name</td>
+    <td><input type="text" [(ngModel)]="userDetails.name" id="name" name="name"></td>
+  </tr>
+  <tr>
+      <td>address</td>
+      <td><textarea  [(ngModel)]="userDetails.address"id="address" cols="30" rows="10" name="address"></textarea></td>
+    </tr>
+    <tr>
+        <td>city</td>
+        <td><input type="text" [(ngModel)]="userDetails.city" id="city" name="city"></td>
+      </tr>
+      <tr>
+          <td>state</td>
+          <td><input type="text" [(ngModel)]="userDetails.state" id="state" name="state"></td>
+        </tr>
+        <tr>
+            <td>country</td>
+            <td><input type="text" [(ngModel)]="userDetails.country" id="country" name="country"></td>
+          </tr>
+          <tr>
+              <td>pincode</td>
+              <td><input type="text" [(ngModel)]="userDetails.pincode" id="pincode" name="pincode"></td>
+            </tr>
+            <tr>
+                <td>contact</td>
+                <td><input type="text" [(ngModel)]="userDetails.contact"  id="contact" name="contact"></td>
+              </tr>
+</table>
+<button (click)=addDetails(userDetails) id="submit">submit</button>
+
+<div *ngIf="message">
+  <h1 id="success-message">Order placed succesfully</h1>
+</div>
+</form>
